@@ -1,0 +1,14 @@
+# Form Selectors
+Self Link: "a.self-link"
+test: "form#name_form input[name=submit]"
+first name box: "form#name_form input[name=first_name]"
+gender: "form#name_form select[name=gender]"
+cars: "form#name_form select[name=cars]"
+terms: "form#name_form input[name=terms]"
+adverts: "form#name_form input[name=adverts]"
+
+#Elements Selectors
+Page: "div.main"
+Widget: "div.main div.widget"
+Widget Area Two: "div.area_two"
+Widget Area Three: "div.area_three"

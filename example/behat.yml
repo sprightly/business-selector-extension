@@ -1,0 +1,20 @@
+default:
+    context:
+        parameters:
+            javascript_session: selenium
+            browser: firefox
+            show_cmd: open %s
+    extensions:
+        OrangeDigital\BusinessSelectorExtension\Extension:
+          urlFilePath: urls.yml
+          selectorFilePath: selectors.yml
+          assetPath: path
+          contexts:
+            UiBusinessSelector: ~
+        Behat\MinkExtension\Extension:
+            base_url: "http://local.dev"
+            default_session: goutte
+            goutte: ~
+            selenium: ~
+            selenium2: ~
+
