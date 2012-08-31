@@ -9,24 +9,11 @@ use Behat\Gherkin\Node\PyStringNode,
 use Behat\MinkExtension\Context\MinkContext,
     OrangeDigital\BusinessSelectorExtension\Context\BusinessSelectorContext;
 
-
-
-/**
- * Features context.
- */
 class FeatureContext extends BehatContext
 {
-    /**
-     * Initializes context.
-     * Every scenario gets it's own context object.
-     *
-     * @param array $parameters context parameters (set them up through behat.yml)
-     */
     public function __construct(array $parameters)
     {
         $this->useContext('mink', new MinkContext($parameters));
         $this->useContext('BusinessSelectors', new BusinessSelectorContext($parameters));
     }
-
-
 }

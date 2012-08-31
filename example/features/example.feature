@@ -1,26 +1,4 @@
-Feature: As a tester I want to be able to write Gherkin like a boss.
-
-@javascript
-Scenario: As a tester I want to test Wikipedia
-Given I go to the page "Business name" 
-When I follow the link "Business name"
-When I press the "business name" button
-When I fill in the "busines name" field with "value"
-When I select "option" from the "business name" selector
-When I additionally select "option" from the "business name" selector
-When I check the "business name" checkbox
-When I uncheck the "business name" checkbox
-When I attach the file "value" to "business name"
-Then I should see "business name" component
-Then I should not see "business name" component
-Then the "business name" should contain "text"
-Then the "business name" should not contain "text"
-Then "business name" should contain "business name"
-Then "business name" should not contain "business name"
-Then the "business name" form field should contain "value"
-Then the "business name" form field should not contain "value"
-Then the "business name" should be checked
-Then the "business name" should not be checked
+Feature: As a tester I want to be able to write Gherkin LIKE A BOSS.
 
 @javascript     
 Scenario: As a tester I want to interact with form elements using business terms.
