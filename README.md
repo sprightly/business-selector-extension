@@ -29,22 +29,19 @@ selector which is maintained in a yml file.
 ````cucumber
 Given I go to the page "Home Page" 
 When I follow the link "Add Subscription"
-And I press the "test" button
 And I fill in the "first name box" field with "ben"
 Then the "first name box" form field should contain "ben"
+And I press the "test" button
 And the "Widget" should contain "Area One Text"
 ````
 The quoted values map to the values in the file configured in behat.yml 
 by the parameter 'selectorFilePath'. 
 
 ````yaml
-Self Link: "a.self-link"
-test: "form#name_form input[name=submit]"
+Add Subscription: "a.self-link"
 first name box: "form#name_form input[name=first_name]"
-gender: "form#name_form select[name=gender]"
-cars: "form#name_form select[name=cars]"
-terms: "form#name_form input[name=terms]"
-adverts: "form#name_form input[name=adverts]"
+test: "form#name_form input[name=submit]"
+Widget: div#user_widget
 ````
 
 ## Installation
