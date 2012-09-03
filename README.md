@@ -181,27 +181,27 @@ When I uncheck the "<CHECKBOX>" checkbox
 ````
 
 ````cucumber
-Then the "<CSS SELECTOR>" should contain "value"
+Then the "<PAGE ELEMENT>" should contain "value"
 ````
 
 ````cucumber
-Then the "<CSS SELECTOR>" should not contain "value"
+Then the "<PAGE ELEMENT>" should not contain "value"
 ````
 
 ````cucumber
-Then I should see "<CSS SELECTOR>" component
+Then I should see "<PAGE ELEMENT>" component
 ````
 
 ````cucumber
-Then I should not see "<CSS SELECTOR>" component
+Then I should not see "<PAGE ELEMENT>" component
 ````
 
 ````cucumber
-Then "<CSS SELECTOR>" should contain "<CSS SELECTOR>"
+Then "<PAGE ELEMENT>" should contain "<PAGE ELEMENT>"
 ````
 
 ````cucumber
-Then "<CSS SELECTOR>" should not contain "<CSS SELECTOR>"
+Then "<PAGE ELEMENT>" should not contain "<PAGE ELEMENT>"
 ````
 
 ````cucumber
