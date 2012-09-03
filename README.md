@@ -24,10 +24,6 @@ selector which is maintained in a yml file.
 
 ### Example
 
-#### Gherkin Written With Steps Provided By MinkExtension
-
-
-
 #### Gherkin Written With Steps Provided By BusinessSelectorsExtension
 
 ````cucumber
@@ -37,6 +33,18 @@ And I press the "test" button
 And I fill in the "first name box" field with "ben"
 Then the "first name box" form field should contain "ben"
 And the "Widget" should contain "Area One Text"
+````
+The quoted values map to the values in the file configured in behat.yml 
+by the parameter 'selectorFilePath'. 
+
+````yaml
+Self Link: "a.self-link"
+test: "form#name_form input[name=submit]"
+first name box: "form#name_form input[name=first_name]"
+gender: "form#name_form select[name=gender]"
+cars: "form#name_form select[name=cars]"
+terms: "form#name_form input[name=terms]"
+adverts: "form#name_form input[name=adverts]"
 ````
 
 ## Installation
@@ -108,4 +116,99 @@ class FeatureContext extends BehatContext
 }
 
 
+````
+
+## Installation: Examples ##
+
+Install the provided examples by moving the html files in *'example/www'* to the 
+web root of a local webserver or create a vhost pointing to *'example/www'*. 
+
+Edit *'example/behat.yml'* *'base_url'* to point to your the url of web root above.
+
+Run **../bin/behat**
+
+##Steps Provided By Business Selectors
+
+Bellow are a list of steps provided by the business selector extension. Values in 
+<BRACKETS> denote arbitrary business friendly names which should match CSS 
+selectors in the relevant config file (specified in behat.yml by 'urlFilePath' 
+and 'selectorFilePath'). See the provided example implementation for details.   
+
+**The URL below should be placed in the URLS file specified in behat.yml by the 
+parameter "urlFilePath"**
+
+````cucumber
+Given I go to the page "<PAGE NAME>" 
+````
+
+**All CSS Selectors below should be placed in the CSS selector file specified
+in behat.yml by the parameter "selectorFilePath"**
+
+
+````cucumber
+When I follow the link "<LINK>"
+````
+
+````cucumber
+When I press the "<BUTTON>" button
+````
+
+````cucumber
+When I fill in the "<TEXT INPUT>" field with "value"
+````
+
+````cucumber
+When the "<TEXT INPUT>" form field should not contain "value"
+````
+
+````cucumber
+When I select "value" from the "<SELECT OR MULTISELECT>" selector
+````
+
+````cucumber
+When I additionally select "value" from the "<MULTISELECT>" selector
+````
+
+````cucumber
+When I check the "<CHECKBOX>" checkbox
+````
+
+````cucumber
+When I uncheck the "<CHECKBOX>" checkbox
+````
+
+````cucumber
+Then the "<CSS SELECTOR>" should contain "value"
+````
+
+````cucumber
+Then the "<CSS SELECTOR>" should not contain "value"
+````
+
+````cucumber
+Then I should see "<CSS SELECTOR>" component
+````
+
+````cucumber
+Then I should not see "<CSS SELECTOR>" component
+````
+
+````cucumber
+Then "<CSS SELECTOR>" should contain "<CSS SELECTOR>"
+````
+
+````cucumber
+Then "<CSS SELECTOR>" should not contain "<CSS SELECTOR>"
+````
+
+````cucumber
+Then the "<CHECKBOX>" should be checked
+````
+
+````cucumber
+Then the "<CHECKBOX>" should not be checked
+````
+
+````cucumber
+Then the "<TEXT INPUT>" form field should contain "value"
 ````
