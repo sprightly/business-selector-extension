@@ -60,7 +60,7 @@ class Extension implements ExtensionInterface {
                 end()->
                 arrayNode('contexts')->
                     children()->
-                        scalarNode('UiBusinessSelector')->
+                        scalarNode('UIBusinessSelector')->
                             defaultNull()->
                         end()->
                     end()->
