@@ -53,7 +53,7 @@ The best way to install the contexts is by using composer.
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/orangedigital/businessselectorextension"
+            "url": "https://github.com/orangedigital/business-selector-extension"
         }
     ],
     "require": {
