@@ -1,5 +1,5 @@
 <?php
-namespace OrangeDigital\OrangeExtension\Context;
+namespace OrangeDigital\BusinessSelectorExtension\Exception;
 
 /**
  * Element Not Found Exception. Thrown when an element is not found on the page.

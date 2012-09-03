@@ -5,7 +5,7 @@ use Behat\MinkExtension\Context\MinkAwareInterface;
 use Behat\Behat\Context\BehatContext;
 use Behat\Mink\Mink;
 use Behat\Behat\Exception\PendingException;
-use OrangeDigital\OrangeExtension\Context\ElementNotFoundException;
+use OrangeDigital\BusinessSelectorExtension\Exception\ElementNotFoundException;
 
 /**
  * This is exposes a number of steps which allow the user to swap business terms
