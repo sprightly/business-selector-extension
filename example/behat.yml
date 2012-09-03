@@ -8,7 +8,7 @@ default:
         OrangeDigital\BusinessSelectorExtension\Extension:
           urlFilePath: urls.yml
           selectorFilePath: selectors.yml
-          assetPath: path
+          assetPath: assets/
           contexts:
             UiBusinessSelector: ~
         Behat\MinkExtension\Extension:

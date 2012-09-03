@@ -15,11 +15,13 @@ And the "adverts" should be checked
 And the "terms" should not be checked
 And I check the "terms" checkbox
 And I uncheck the "adverts" checkbox
-And I wait
+And I attach "cat.jpeg" to "file upload input"
+
 
 @javascript
 Scenario: As a tester I want to assert the presence of elements on the page using business terms
 Given I go to the page "Element Page"
+And I hover over "Widget"
 Then the "Page" should contain "Area One Text"
 And the "Widget" should contain "Area One Text"
 And the "Widget Area Two" should contain "Area Two Nested Text"
@@ -27,5 +29,5 @@ And I should see "Widget Area Two" component
 And I should not see "Widget Area Three" component
 And "Widget" should contain "Widget Area Two"
 And "Widget" should not contain "Widget Area Three"
-And I wait
+
 

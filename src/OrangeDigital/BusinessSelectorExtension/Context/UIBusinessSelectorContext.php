@@ -170,12 +170,36 @@ class UIBusinessSelectorContext extends BehatContext implements MinkAwareInterfa
     }
 
     /**
-     * @When /^I atach the file to "([^"]*)"$/
+     * @Given /^I attach "([^"]*)" to "([^"]*)"$/
      */
-    public function iAtachTheFileTo($elementName) {
-        throw new PendingException();
+    public function iAttachTo($file, $elementName)
+    {    
+        $element = $this->findElementWithBusinessSelector($elementName);
+        
+        $path = $this->parameters['assetPath'] . $file;
+
+        $rPath = realpath($path);
+        
+        if(!file_exists($rPath)) {
+            throw new \RuntimeException("File: $rPath does not exist");
+        }
+        
+        $element->attachFile($path);
+         
     }
 
+    /**
+     * @When /^I hover over "([^"]*)"$/
+     */
+    public function iHoverOver($elementName)
+    {
+        $element = $this->findElementWithBusinessSelector($elementName);
+        
+        $element->mouseOver();
+    }
+
+
+    
     /**
      * @Then /^I should see "([^"]*)" component$/
      */
@@ -302,8 +326,6 @@ class UIBusinessSelectorContext extends BehatContext implements MinkAwareInterfa
             if (!$path) {
                 throw new \RuntimeException('Value "selectorFilePath not set in config"');
             }
-
-
 
             $this->selectors = $this->loadYaml($path);
         }

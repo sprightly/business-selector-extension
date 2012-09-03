@@ -6,6 +6,7 @@ gender: "form#name_form select[name=gender]"
 cars: "form#name_form select[name=cars]"
 terms: "form#name_form input[name=terms]"
 adverts: "form#name_form input[name=adverts]"
+file upload input: "form#name_form input[name=file_upload]"
 
 #Elements Selectors
 Page: "div.main"

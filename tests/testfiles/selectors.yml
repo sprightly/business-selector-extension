@@ -1,5 +1,6 @@
 User Link: "a.test"
 User Name: "input[name=first_name]"
+User Picture: "input[name=picture]"
 User Gender: "select"
 User Car: "select"
 Terms Box: "input[name=terms]"

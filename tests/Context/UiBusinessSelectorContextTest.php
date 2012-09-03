@@ -1,7 +1,7 @@
 <?php
 
 use Behat\Mink\Mink;
-use OrangeDigital\OrangeExtension\Context\UIBusinessSelectorContext;
+use OrangeDigital\BusinessSelectorExtension\Context\UIBusinessSelectorContext;
 use Behat\Mink\Session;
 use Behat\Mink\Element\Element;
 
@@ -28,8 +28,9 @@ class UiBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
     public function setUp() {
 
         $this->context = new UiBusinessSelectorContext(array(
-                    "urlFilePath" => "urls.yml",
-                    "selectorFilePath" => "selectors.yml"
+                    "urlFilePath" => "tests/testfiles/urls.yml",
+                    "selectorFilePath" => "tests/testfiles/selectors.yml",
+                    "assetPath" => "tests/testfiles/assets/"
                 ));
 
         $this->mink = $this->getMock('\Behat\Mink\Mink', array(), array(), '', false, false);
@@ -82,7 +83,7 @@ class UiBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
                 ->method("getPage")
                 ->will($this->returnValue($page));
 
-        $this->setExpectedException('OrangeDigital\OrangeExtension\Context\ElementNotFoundException');
+        $this->setExpectedException('OrangeDigital\BusinessSelectorExtension\Exception\ElementNotFoundException');
     }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -785,7 +786,7 @@ class UiBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
         
         $this->setFindExpectationWithReturnElement('div.main', $cbox);
 
-        $this->setExpectedException('OrangeDigital\OrangeExtension\Context\ElementNotFoundException');
+        $this->setExpectedException('OrangeDigital\BusinessSelectorExtension\Exception\ElementNotFoundException');
         
         $this->context->shouldContain('Container', 'SubContainer');         
     }
@@ -863,6 +864,92 @@ class UiBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
         $this->context->theShouldNotContain('whos dog?', "text");         
     }
     
+    public function testIAttachToShouldCorrectlySubstituteSelector() {
+        
+        $this->setSessionExpectation(true);
+
+        $input = $this->getMock('Behat\Mink\Element\NodeElement', array(), array(), '', false, false);
+
+        $input
+                ->expects($this->once())
+                ->method('attachFile')
+                ->will($this->returnValue(true));
+
+        $this->setFindExpectationWithReturnElement('input[name=picture]', $input);
+
+        $this->context->iAttachTo('cat.jpeg', 'User Picture');       
+    }
+    
+    public function testIAttachToShouldThrowExceptionIfElementNotFound() {
+        
+        $this->setSessionExpectation(true);
+
+        $this->setFindExpectationWithNoElementFoundException('input[name=picture]');
+
+        $this->context->iAttachTo('cat.jpeg', 'User Picture');           
+    }
+    
+    public function testIAttachToShouldThrowExceptionOnNonExistentSelector() {
+        
+        $this->setSessionExpectation(false);
+
+        $this->setExpectedException('\RuntimeException');
+
+        $this->context->iAttachTo('cat.jpeg', 'Who now?');      
+    }
+    
+    public function testIAttachToShouldThrowExceptionIfFileNotFound() {
+        
+        $this->setSessionExpectation(true);
+
+        $input = $this->getMock('Behat\Mink\Element\NodeElement', array(), array(), '', false, false);
+
+        $input
+                ->expects($this->never())
+                ->method('attachFile');
+
+        $this->setFindExpectationWithReturnElement('input[name=picture]', $input);
+
+        $this->setExpectedException('\RuntimeException');
+        
+        $this->context->iAttachTo('dog.jpeg', 'User Picture');          
+    }
+    
+    public function testIHoverOverShouldCorrectlySubstituteSelector() {
+        
+        $this->setSessionExpectation(true);
+
+        $input = $this->getMock('Behat\Mink\Element\NodeElement', array(), array(), '', false, false);
+
+        $input
+                ->expects($this->once())
+                ->method('mouseOver')
+                ->will($this->returnValue(true));
+
+        $this->setFindExpectationWithReturnElement('input[name=picture]', $input);
+
+        $this->context->iHoverOver('User Picture');               
+    }
+    
+    public function testIHoverOverShouldThrowExceptionIfElementNotFound() {
+        
+        $this->setSessionExpectation(true);
+
+        $this->setFindExpectationWithNoElementFoundException('input[name=picture]');
+
+        $this->context->iHoverOver('User Picture');           
+    }
+    
+    public function testIHoverOverShouldThrowExceptionOnNonExistentSelector() {
+        
+        $this->setSessionExpectation(false);
+
+        $this->setExpectedException('\RuntimeException');
+
+        $this->context->iHoverOver('no idea');          
+    }
+    
+            
 
 }
 
