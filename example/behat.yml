@@ -10,7 +10,7 @@ default:
           selectorFilePath: selectors.yml
           assetPath: assets/
           contexts:
-            UiBusinessSelector: ~
+            UIBusinessSelector: ~
         Behat\MinkExtension\Extension:
             base_url: "http://local.dev"
             default_session: goutte

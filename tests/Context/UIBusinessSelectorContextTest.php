@@ -6,12 +6,12 @@ use Behat\Mink\Session;
 use Behat\Mink\Element\Element;
 
 /**
- * Unit tests for the UiBusinessSelectorContext.
+ * Unit tests for the UIBusinessSelectorContext.
  * 
  * @author Ben Waine <ben.waine@orange.com>
  * @author Phill Hicks <phillip.hicks@orange.com>    
  */
-class UiBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
+class UIBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @var OrangeDigital\OrangeExtension\Context\UIBusinessSelectorContext  
@@ -31,6 +31,7 @@ class UiBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
                     "urlFilePath" => "tests/testfiles/urls.yml",
                     "selectorFilePath" => "tests/testfiles/selectors.yml",
                     "assetPath" => "tests/testfiles/assets/"
+
                 ));
 
         $this->mink = $this->getMock('\Behat\Mink\Mink', array(), array(), '', false, false);
