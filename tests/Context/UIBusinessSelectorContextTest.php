@@ -950,6 +950,44 @@ class UIBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
         $this->context->iHoverOver('no idea');          
     }
     
+    public function testIFocusOnTheIframeShouldCorrectlySubstituteSelector() {
+        
+        $this->setSessionExpectation();
+        
+        $this->session
+                ->expects($this->once())
+                ->method("switchToIFrame")
+                ->with("frameid")
+                ->will($this->returnValue(null));
+
+
+        $this->context->IFocusOnTheIframe('Frame');   
+        
+    }
+    
+    public function testIFocusOnTheIFrameShouldThrowExceptionOnNonExistentSelector() {
+        
+        $this->setSessionExpectation(false);
+        
+        $this->setExpectedException('\RuntimeException');
+        
+        $this->context->IFocusOnTheIframe('NOFrame');   
+    }
+    
+    
+    public function testIRefocusOnThePrimaryPage() {
+        
+        $this->setSessionExpectation();
+        
+        $this->session
+                ->expects($this->once())
+                ->method("switchToIFrame")
+                ->with($this->isNull())
+                ->will($this->returnValue(null));
+
+        $this->context->iRefocusOnThePrimaryPage('Frame');           
+    }
+    
             
 
 }

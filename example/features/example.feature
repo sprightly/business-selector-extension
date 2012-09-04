@@ -21,7 +21,13 @@ And I attach "cat.jpeg" to "file upload input"
 @javascript
 Scenario: As a tester I want to assert the presence of elements on the page using business terms
 Given I go to the page "Element Page"
-And I hover over "Widget"
+When I hover over "Widget"
+And I focus on the "Test Box" iframe
+Then I should see "FRAME CONTENT"
+And I should not see "Area One Text" 
+When I refocus on the primary page
+Then I should see "Area One Text"
+Then I should not see "FRAME CONTENT"
 Then the "Page" should contain "Area One Text"
 And the "Widget" should contain "Area One Text"
 And the "Widget Area Two" should contain "Area Two Nested Text"
@@ -29,5 +35,6 @@ And I should see "Widget Area Two" component
 And I should not see "Widget Area Three" component
 And "Widget" should contain "Widget Area Two"
 And "Widget" should not contain "Widget Area Three"
+
 
 

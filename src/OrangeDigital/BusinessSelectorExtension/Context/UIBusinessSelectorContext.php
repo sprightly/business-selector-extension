@@ -198,6 +198,28 @@ class UIBusinessSelectorContext extends BehatContext implements MinkAwareInterfa
         $element->mouseOver();
     }
 
+    /**
+     * @When /^I focus on the "([^"]*)" iframe$/
+     */
+    public function iFocusOnTheIframe($elementName)
+    {
+        $element = $this->getSelectorFromString($elementName);
+        
+        $session = $this->getSession();
+        
+        $session->switchToIFrame($element);
+    }
+
+    /**
+     * @When /^I refocus on the primary page$/
+     */
+    public function iRefocusOnThePrimaryPage()
+    {
+        $session = $this->getSession();
+        
+        $session->switchToIFrame();
+    }
+    
 
     
     /**
