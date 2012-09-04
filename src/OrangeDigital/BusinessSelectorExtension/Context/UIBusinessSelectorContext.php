@@ -184,7 +184,7 @@ class UIBusinessSelectorContext extends BehatContext implements MinkAwareInterfa
             throw new \RuntimeException("File: $rPath does not exist");
         }
         
-        $element->attachFile($path);
+        $element->attachFile($rPath);
          
     }
 
