@@ -15,7 +15,8 @@ reduce the readability of the Gherkin scenarios.
 the MinkExtension provides. 
 
 3) By using these attributes directly in the Gherkin files, they become tightly 
-coupled to the front end implementation. Gherkin should express business      
+coupled to the front end implementation. Gherkin should express business 
+requirements rather than implementation details.      
 
 Business Selectors for Behat allow the user to use steps very similar to the 
 ones provided by the MinkExtension to describe elements on the page in business
@@ -183,7 +184,7 @@ When I uncheck the "<CHECKBOX>" checkbox
 ````cucumber
 When I focus on the "<ID OF IFRAME>" iframe
 ````
-** Note: The step above is the only step where the selector MUST be an ID. 
+**Note: The step above is the only step where the selector MUST be an ID. 
 This is due to an underlying driver implementation detail**
 
 ````cucumber
