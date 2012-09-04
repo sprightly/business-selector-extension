@@ -181,6 +181,20 @@ When I uncheck the "<CHECKBOX>" checkbox
 ````
 
 ````cucumber
+When I focus on the "<ID OF IFRAME>" iframe
+````
+** Note: The step above is the only step where the selector MUST be an ID. 
+This is due to an underlying driver implementation detail**
+
+````cucumber
+When I refocus on the primary page
+`````
+
+````cucumber
+When I hover over "<PAGE ELEMENT>"
+````
+
+````cucumber
 Then the "<PAGE ELEMENT>" should contain "value"
 ````
 
