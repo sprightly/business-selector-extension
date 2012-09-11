@@ -50,7 +50,7 @@ Widget: div#user_widget
 
 The best way to install the contexts is by using composer. 
 
-1) For instructions on installing Behat see: [behat.org][http://behat.org/]
+1) For instructions on installing Behat see: [behat.org](http://behat.org/)
 
 2) Add in the following to the composer.json of the project you'd like to test.
 
