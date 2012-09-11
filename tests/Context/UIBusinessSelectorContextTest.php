@@ -783,7 +783,7 @@ class UIBusinessSelectorContextTest extends \PHPUnit_Framework_TestCase {
         $cbox->expects($this->once())
               ->method('find')
               ->with('css', 'div.sub')
-              ->will($this->returnValue($cboxSub));
+              ->will($this->returnValue(null));
         
         $this->setFindExpectationWithReturnElement('div.main', $cbox);
 
