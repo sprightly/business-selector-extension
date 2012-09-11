@@ -64,7 +64,7 @@ The best way to install the contexts is by using composer.
     ],
     "require": {
         "behat/behat": ">v2.4@stable",
-        "orangedigital/businessselectorextension": "*"
+        "orangedigital/business-selector-extension": "*"
     }
 }
 ````
