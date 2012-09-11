@@ -4,7 +4,7 @@
 
 The Mink Extension for Behat is an excellent way to quickly get up and running 
 with web acceptance testing. It allows the user to specify HTML elements on the
-page using common attributes like 'title', 'alt' and 'value'. Some steos allow
+page using common attributes like 'title', 'alt' and 'value'. Some steps allow
 the use of CSS selectors inline in the Gherkin files. 
 
 While this approach is great it has a few draw backs: 
