@@ -1,9 +1,8 @@
 {
-    "name": "orangedigital/business-selector-extension",
+    "name": "sprightly/business-selector-extension",
     "type": "library",
     "description": "CSS Selector Substitution For Behat",
     "keywords": ["Behat","BDD", "Gherkin"],
-    "homepage": "http://github.com/orangedigital/business-selector-extension",
     "license": "MIT",
     "authors": [
         {
