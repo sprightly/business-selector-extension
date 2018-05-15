@@ -1,8 +1,8 @@
 <?php
 namespace OrangeDigital\BusinessSelectorExtension; 
 
-use Behat\Behat\Context\ContextInterface;
-use Behat\Behat\Context\Initializer\InitializerInterface;
+use Behat\Behat\Context\Context as ContextInterface;
+use Behat\Behat\Context\Initializer\ContextInitializer;
 use OrangeDigital\BusinessSelectorExtension\Context\BusinessSelectorContext;
 
 
@@ -12,7 +12,7 @@ use OrangeDigital\BusinessSelectorExtension\Context\BusinessSelectorContext;
  * @author Ben Waine <ben.waine@orange.com>
  * @author Phill Hicks <phillip.hicks@orange.com>  
  */
-class Initializer implements InitializerInterface
+class Initializer implements ContextInitializer
 {
     /**
      * Config Parameters from behat.yml.
@@ -34,26 +34,18 @@ class Initializer implements InitializerInterface
     }
 
     /**
-     * Informs Behat as to whether the supplied context is supported.
-     * 
-     * @param ContextInterface $context
-     * 
-     * @return Boolean 
-     */
-    public function supports(ContextInterface $context)
-    {
-        return ($context instanceof BusinessSelectorContext);
-    }
-
-    /**
      * Method passes the parameters to the context.
      * 
      * @param ContextInterface $context
      * 
      * @return void 
      */
-    public function initialize(ContextInterface $context)
+    public function initializeContext(ContextInterface $context)
     {
+        if (!$context instanceof BusinessSelectorContext) {
+            return;
+        }
+
         $context->setParameters($this->parameters);
     }
 }

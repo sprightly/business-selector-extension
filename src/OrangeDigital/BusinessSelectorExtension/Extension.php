@@ -2,12 +2,13 @@
 
 namespace OrangeDigital\BusinessSelectorExtension;
 
+use Behat\Testwork\ServiceContainer\ExtensionManager;
 use Symfony\Component\DependencyInjection\ContainerBuilder,
     Symfony\Component\DependencyInjection\Loader\XmlFileLoader,
     Symfony\Component\Config\FileLocator,
     Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
-use Behat\Behat\Extension\ExtensionInterface;
+use Behat\Testwork\ServiceContainer\Extension as ExtensionInterface;
 
 /**
  * Extension hooks into the Behat DIC and exposes the extensions Initializer.
@@ -18,24 +19,30 @@ use Behat\Behat\Extension\ExtensionInterface;
 class Extension implements ExtensionInterface {
 
     /**
-     * Loads a specific configuration.
-     *
-     * @param array            $config    Extension configuration hash (from behat.yml)
-     * @param ContainerBuilder $container ContainerBuilder instance
-     * 
-     * @return void
+     * Extension configuration ID.
      */
-    public function load(array $config, ContainerBuilder $container)
+    const BUSINESS_SELECTOR = 'business_selector';
+
+    /**
+     * {@inheritdoc}
+     */
+    public function load(ContainerBuilder $container, array $config)
     {
-        
         $loader = new XmlFileLoader(
             $container,
             new FileLocator(__DIR__)
         );
         
         $loader->load('services.xml');
-        
+
         $container->setParameter('businessselector.parameters', $config);   
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getConfigKey() {
+        return self::BUSINESS_SELECTOR;
     }
 
     /**
@@ -45,7 +52,7 @@ class Extension implements ExtensionInterface {
      * 
      * @return void
      */
-    public function getConfig(ArrayNodeDefinition $builder)
+    public function configure(ArrayNodeDefinition $builder)
     {
         $builder->
             children()->
@@ -70,14 +77,14 @@ class Extension implements ExtensionInterface {
     }
 
     /**
-     * Returns compiler passes used by this extension.
-     *
-     * @return array
+     * {@inheritDoc}
      */
-    public function getCompilerPasses()
-    {
-        return array();
-    }
+    public function process(ContainerBuilder $container) {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function initialize(ExtensionManager $extensionManager) {}
 }
 
 return new Extension();

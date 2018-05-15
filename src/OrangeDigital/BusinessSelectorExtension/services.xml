@@ -12,7 +12,7 @@
     <services>
         <service id="businessselector.context.initializer" class="%businessselector.context.initializer.class%">
             <argument>%businessselector.parameters%</argument>
-            <tag name="behat.context.initializer" />
+            <tag name="context.initializer" />
         </service>       
     </services>
 
