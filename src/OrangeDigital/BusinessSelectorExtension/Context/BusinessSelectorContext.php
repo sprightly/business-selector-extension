@@ -293,7 +293,7 @@ class BusinessSelectorContext implements MinkAwareContext
     {
         $element = $this->findElementWithBusinessSelector($elementName);
 
-        $actualText = $element->getHtml();
+        $actualText = $element->getText();
 
         if (strpos($actualText, $text) === false) {
             throw new \RuntimeException("'$text' not found in $elementName");
@@ -313,7 +313,7 @@ class BusinessSelectorContext implements MinkAwareContext
         $actualText = $element->getText();
 
         if (strpos($actualText, $text) !== false) {
-            throw new \RuntimeException("'$text' not found in $elementName");
+            throw new \RuntimeException("'$text' found in $elementName");
         }
     }
 
